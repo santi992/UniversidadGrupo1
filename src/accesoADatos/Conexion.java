@@ -10,11 +10,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-
 /**  comentario 2308 
-=======
-/**  comentario 2308 probando
->>>>>>> 390d5519134c2aa9ca0b2765e9910f8f755b232e
  *
  * @author SANTIAGONB
  */
