@@ -19,15 +19,15 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
-public class AlumnoData {
+class AlumnoDataOriginal {
     
     private Connection con = null;
     
-    public AlumnoData(){
+    public AlumnoDataOriginal(){
         con= Conexion.conectar();
     }
-    public void guardarAlumno(Alumno alumno){
-        String sql= "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado)"+
+    public void gaurdarAlumno(Alumno alumno){
+        String sql= "INSERT INTO alumno(dni, apellido, nombre, fechaNacimiento, estado)"+
                 "VALUES(?,?,?,?,?)";
         PreparedStatement ps;
         try {
@@ -38,20 +38,17 @@ public class AlumnoData {
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setBoolean(5, alumno.isActivo());//idem atributo "estado" se llama activo
             ps.executeUpdate();
-            
             ResultSet rs= ps.getGeneratedKeys();
             if(rs.next()){
-                
-                alumno.setIdAlumno(rs.getInt(1));
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 JOptionPane.showMessageDialog(null, "Alumno añadido con éxito");
             }
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla alumno "+ ex.getMessage());
+            JOptionPane.showMessageDialog(null,"Error al acceder a la tabla alumno"+ ex.getMessage());
             
         }
-        
     }
         public Alumno buscarAlumno(int id){
             Alumno alumno=null;
@@ -81,38 +78,9 @@ public class AlumnoData {
             
         
         }
-       public Alumno buscarAlumnoPorDniGuardar(int dni){
-            Alumno alumno=null;
-            String sql= " SELECT  idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? ";
-            PreparedStatement ps= null;
-        try {
-            ps=con.prepareStatement(sql);
-            ps.setInt(1, dni);
-            ResultSet rs= ps.executeQuery();
-            if (rs.next()){
-                alumno=new Alumno();
-                alumno.setIdAlumno(rs.getInt("idAlumno"));
-                alumno.setDni(rs.getInt("dni"));
-                alumno.setApellido(rs.getString("apellido"));
-                alumno.setNombre(rs.getNString("nombre"));
-                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setActivo(true);// es estado, me toma como activo xq el atributo en la clase alumno del paquete entidades se llama activo
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe el alumno, ni existio");
-                ps.close();
-            }
-        }
-           catch (SQLException ex) {
-               JOptionPane.showMessageDialog(null,"Error al acceder a la tabla Alumno "+ ex.getMessage());
-            
-           } return alumno;
-            
-        
-        }
-       
        public Alumno buscarAlumnoPorDni(int dni){
             Alumno alumno=null;
-            String sql= " SELECT  idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno WHERE dni = ? AND estado = 1"; //aca estaba el cambio dni
+            String sql= " SELECT  idAlumno,dni, apellido, nombre, fechaNacimiento FROM alumno Where idAlumno=? AND estado=1";
             PreparedStatement ps= null;
         try {
             ps=con.prepareStatement(sql);
@@ -175,23 +143,6 @@ public void modificarAlumno(Alumno alumno){
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setInt(5, alumno.getIdAlumno());
-            int exito= ps.executeUpdate();
-            if (exito==1){
-                JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
-            }else{
-                JOptionPane.showMessageDialog(null, "El alumno no existe.");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Alumno"+ex.getMessage());
-        }
-}
-public void modificarEstado(Alumno alumno){
-    String sql="UPDATE alumno SET estado = ? WHERE idAlumno = ?" ;
-    PreparedStatement ps=null;
-        try {
-            ps= con.prepareStatement(sql);
-            ps.setBoolean(1, alumno.isActivo());
-            ps.setInt(2, alumno.getIdAlumno());
             int exito= ps.executeUpdate();
             if (exito==1){
                 JOptionPane.showMessageDialog(null, "Modificado exitosamente.");

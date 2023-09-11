@@ -25,12 +25,12 @@ public class inscripcionData {
     
     private Connection con;
     private MateriaData materiaData;
-    private AlumnoData alumnoData;
+    private AlumnoDataOriginal alumnoData;
 
     public inscripcionData() {
         con = Conexion.conectar();
         materiaData = new MateriaData();
-        alumnoData = new AlumnoData();
+        alumnoData = new AlumnoDataOriginal();
     }
     
     public void guardarInscripcion(Inscripcion inc) {
