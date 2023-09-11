@@ -93,6 +93,8 @@ public class Alumno {
         this.activo = activo;
     }
 
+   
+
     
     
 }
