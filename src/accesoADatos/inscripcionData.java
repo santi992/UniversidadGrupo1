@@ -154,7 +154,6 @@ public class inscripcionData {
         return materias;
     }  
     
-    
     public List<Materia> obtenerMateriasNoCursadas(int idAlumno) {
         ArrayList<Materia> materias = new ArrayList<>();
         List<Materia> materiasSi = obtenerMateriasCursadas(idAlumno);
