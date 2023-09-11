@@ -5,7 +5,6 @@
  */
 package accesoADatos;
 
-import static accesoADatos.Conexion.conectar;
 import entidades.Alumno;
 import java.sql.Connection;
 import java.sql.Date;
@@ -14,8 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import org.mariadb.jdbc.Statement;
 
