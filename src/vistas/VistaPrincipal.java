@@ -5,8 +5,6 @@
  */
 package vistas;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author SANTIAGONB
@@ -36,7 +34,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        escritorio = new javax.swing.JDesktopPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jAlumno = new javax.swing.JMenu();
         jFormulA = new javax.swing.JMenuItem();
@@ -93,32 +91,22 @@ public class VistaPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
 
-        escritorio.setBackground(new java.awt.Color(32, 46, 60));
+        jDesktopPane1.setBackground(new java.awt.Color(138, 181, 224));
 
-        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
-        escritorio.setLayout(escritorioLayout);
-        escritorioLayout.setHorizontalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 640, Short.MAX_VALUE)
         );
-        escritorioLayout.setVerticalGroup(
-            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 482, Short.MAX_VALUE)
         );
 
         jAlumno.setText("Alumno");
-        jAlumno.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jAlumnoActionPerformed(evt);
-            }
-        });
 
         jFormulA.setText("Formulario de Alumno");
-        jFormulA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormulAActionPerformed(evt);
-            }
-        });
         jAlumno.add(jFormulA);
 
         jMenuBar1.add(jAlumno);
@@ -161,11 +149,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
@@ -174,19 +162,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jAlumxMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumxMatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jAlumxMatActionPerformed
-
-    private void jAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumnoActionPerformed
-     
-    }//GEN-LAST:event_jAlumnoActionPerformed
-
-    private void jFormulAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulAActionPerformed
-        escritorio.removeAll();
-        escritorio.repaint();
-        FormularioAlumno formA = new FormularioAlumno();
-        formA.setVisible(true);
-        escritorio.add(formA);
-        escritorio.moveToFront(formA);
-    }//GEN-LAST:event_jFormulAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +192,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -227,11 +206,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenu jAdmin;
     private javax.swing.JMenu jAlumno;
     private javax.swing.JMenuItem jAlumxMat;
     private javax.swing.JMenu jConsultas;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuItem jFormulA;
     private javax.swing.JMenuItem jFormulM;
     private javax.swing.JFrame jFrame1;

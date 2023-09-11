@@ -6,7 +6,6 @@ package vistas;
 import accesoADatos.AlumnoData;
 import entidades.Alumno;
 import java.sql.Date;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
 
