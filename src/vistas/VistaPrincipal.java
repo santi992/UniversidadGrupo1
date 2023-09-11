@@ -107,6 +107,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jAlumno.setText("Alumno");
 
         jFormulA.setText("Formulario de Alumno");
+        jFormulA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormulAActionPerformed(evt);
+            }
+        });
         jAlumno.add(jFormulA);
 
         jMenuBar1.add(jAlumno);
@@ -162,6 +167,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jAlumxMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumxMatActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jAlumxMatActionPerformed
+
+    private void jFormulAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulAActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        FormularioAlumno formA = new FormularioAlumno();
+        formA.setVisible(true);
+        jDesktopPane1.add(formA);
+        jDesktopPane1.moveToFront(formA);
+    }//GEN-LAST:event_jFormulAActionPerformed
 
     /**
      * @param args the command line arguments
