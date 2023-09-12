@@ -109,10 +109,10 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
                     .addComponent(jcElegirMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlSeleccione))
                 .addGap(18, 18, 18)
-                .addComponent(jSccrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jSccrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbSalir)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -125,7 +125,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
 
     private void jcElegirMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcElegirMateriaActionPerformed
         // TODO add your handling code here:
-        armarTabla();
+        alumnosATabla();
         
     }//GEN-LAST:event_jcElegirMateriaActionPerformed
 
