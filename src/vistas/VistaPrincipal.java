@@ -175,7 +175,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         FormularioAlumno formA = new FormularioAlumno();
         mostrarVista(formA);
     }//GEN-LAST:event_jFormulAActionPerformed
-
+    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {                                        
+             
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        CargaNotas formN = new CargaNotas();
+        formN.setVisible(true);
+        jDesktopPane1.add(formN);
+        jDesktopPane1.moveToFront(formN); 
+    }    
     /**
      * @param args the command line arguments
      */
