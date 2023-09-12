@@ -20,7 +20,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int f, int c) {
-            return true;
+            if (c==2){
+                return true;
+            }else{
+                return false;
+            }
         }
 
     };
@@ -149,7 +153,7 @@ private InscripcionData iData = new InscripcionData();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
-       
+       armarTabla();
         
 
 
@@ -160,8 +164,7 @@ private InscripcionData iData = new InscripcionData();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        
-        
+        actualizarNota();
         
         
         
@@ -197,7 +200,7 @@ private InscripcionData iData = new InscripcionData();
     private void armarTabla() {
         limpiarTabla();
         Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
-        List materia = iData.obtenerMateriasCursadas(alumno.getIdAlumno());
+        List materia = iData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
         for (Object mat : materia) {
             Inscripcion materias = (Inscripcion) mat;
             modelo.addRow(new Object[]{materias.getMateria().getIdMateria(), materias.getMateria().getNombre(), materias.getNota()});
@@ -207,6 +210,16 @@ private InscripcionData iData = new InscripcionData();
     private void limpiarTabla() {
         for (int i = 0; i < modelo.getRowCount(); i++) {
             modelo.removeRow(0);
+        }
+    }
+    public void actualizarNota(){
+        int fila = modelo.getRowCount();
+        
+        for (int i=0; i < fila; i++){
+            
+        int nota = (int) this.modelo.getValueAt(i, 2);
+        iData.actualizarNota(((Alumno)jcbAlumno.getSelectedItem()).getIdAlumno(),(int) modelo.getValueAt(i, 0),(int) modelo.getValueAt(i, 2));
+                  
         }
     }
 }
