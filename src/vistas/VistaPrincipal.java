@@ -5,6 +5,7 @@
  */
 package vistas;
 
+import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 
 /**
@@ -18,6 +19,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
      */
     public VistaPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -182,12 +184,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormulAActionPerformed
 
     private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
         CargaNotas formN = new CargaNotas();
-        formN.setVisible(true);
-        jDesktopPane1.add(formN);
-        jDesktopPane1.moveToFront(formN); 
+        mostrarVista(formN);
         
     }//GEN-LAST:event_jMNotasActionPerformed
                                          
@@ -262,6 +260,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jDesktopPane1.repaint();
         vista.setVisible(true);
         jDesktopPane1.add(vista);
+        Dimension desktopSize = jDesktopPane1.getSize();
+        Dimension FrameSize = vista.getSize();
+        vista.setLocation((desktopSize.width - FrameSize.width)/2, (desktopSize.height- FrameSize.height)/2);
         jDesktopPane1.moveToFront(vista);
     }
 
