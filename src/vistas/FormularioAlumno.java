@@ -183,7 +183,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         AlumnoData alu = new AlumnoData();
         Alumno alEncontrado =  alu.buscarAlumnoPorDni(Integer.parseInt(jtDocumento.getText()));
         
-         jtNombre.setText(alEncontrado.getNombre());            //cambia los datos de la interface por el alumno encontrado
+        jtNombre.setText(alEncontrado.getNombre());            //cambia los datos de la interface por el alumno encontrado
         jtApellido.setText(alEncontrado.getApellido());
         jDateChooser1.setDate(Date.from(alEncontrado.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));   //convertir de Local Date a Date 
         jrbEstado.setSelected(alEncontrado.isActivo());

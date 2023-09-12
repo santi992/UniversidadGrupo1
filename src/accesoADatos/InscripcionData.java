@@ -21,13 +21,13 @@ import javax.swing.JOptionPane;
  *
  * @author SANTIAGONB
  */
-public class inscripcionData {
+public class InscripcionData {
     
     private Connection con;
     private MateriaData materiaData;
     private AlumnoData alumnoData;
 
-    public inscripcionData() {
+    public InscripcionData() {
         con = Conexion.conectar();
         materiaData = new MateriaData();
         alumnoData = new AlumnoData();

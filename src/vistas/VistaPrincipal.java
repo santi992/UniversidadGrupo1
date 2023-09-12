@@ -5,6 +5,8 @@
  */
 package vistas;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author SANTIAGONB
@@ -129,6 +131,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jAdmin.add(jMInscripciones);
 
         jMNotas.setText("Manipulacion de Notas");
+        jMNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNotasActionPerformed(evt);
+            }
+        });
         jAdmin.add(jMNotas);
 
         jMenuBar1.add(jAdmin);
@@ -165,18 +172,26 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jAlumxMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlumxMatActionPerformed
-        // TODO add your handling code here:
+        AlumnosXMateria alXM = new AlumnosXMateria();
+        mostrarVista(alXM);
     }//GEN-LAST:event_jAlumxMatActionPerformed
 
     private void jFormulAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulAActionPerformed
-        jDesktopPane1.removeAll();
-        jDesktopPane1.repaint();
         FormularioAlumno formA = new FormularioAlumno();
-        formA.setVisible(true);
-        jDesktopPane1.add(formA);
-        jDesktopPane1.moveToFront(formA);
+        mostrarVista(formA);
     }//GEN-LAST:event_jFormulAActionPerformed
 
+    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        CargaNotas formN = new CargaNotas();
+        formN.setVisible(true);
+        jDesktopPane1.add(formN);
+        jDesktopPane1.moveToFront(formN); 
+        
+    }//GEN-LAST:event_jMNotasActionPerformed
+                                         
+        
     /**
      * @param args the command line arguments
      */
@@ -240,4 +255,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenu jSalir;
     // End of variables declaration//GEN-END:variables
+
+    // Funcion que muestra una vista en en escritorio interno
+    private void mostrarVista(JInternalFrame vista){
+        jDesktopPane1.removeAll();
+        jDesktopPane1.repaint();
+        vista.setVisible(true);
+        jDesktopPane1.add(vista);
+        jDesktopPane1.moveToFront(vista);
+    }
+
+    
 }
