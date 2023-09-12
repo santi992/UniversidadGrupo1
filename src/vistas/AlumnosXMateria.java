@@ -47,6 +47,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(500, 400));
 
         jlTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlTitulo.setForeground(new java.awt.Color(0, 0, 0));
         jlTitulo.setText("Listado de alumnos por materia");
 
         jcElegirMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +56,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        jlSeleccione.setForeground(new java.awt.Color(0, 0, 0));
         jlSeleccione.setText("Seleccione una materia:");
 
         jTabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -70,6 +72,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         ));
         jSccrollTabla.setViewportView(jTabla);
 
+        jbSalir.setForeground(new java.awt.Color(0, 0, 0));
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
