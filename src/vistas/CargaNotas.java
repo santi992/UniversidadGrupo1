@@ -4,6 +4,12 @@
  */
 package vistas;
 
+import accesoADatos.AlumnoData;
+import accesoADatos.InscripcionData;
+import entidades.Alumno;
+import entidades.Inscripcion;
+import entidades.Materia;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -14,11 +20,12 @@ public class CargaNotas extends javax.swing.JInternalFrame {
 
     private DefaultTableModel modelo = new DefaultTableModel() {
         public boolean isCellEditable(int f, int c) {
-            return false;
+            return true;
         }
 
     };
-
+private AlumnoData aData = new AlumnoData();
+private InscripcionData iData = new InscripcionData();
     /**
      * Creates new form CargaNotas
      */
@@ -26,7 +33,9 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     public CargaNotas() {
         initComponents();
         armarCabecera();
-
+        armarCombo();
+        armarTabla();
+        
     }
 
     /**
@@ -47,6 +56,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 153, 255));
+        setTitle("                                                  Carga de notas");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Carga de notas");
@@ -79,6 +89,11 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTablaN);
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +149,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
-        modelo.addRow(new Object []{materia.getCodigo(),materia.getNombre(),materia.getNota()});
+       
         
 
 
@@ -144,6 +159,15 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -152,7 +176,7 @@ public class CargaNotas extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTablaN;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbAlumno;
+    private javax.swing.JComboBox<Alumno> jcbAlumno;
     // End of variables declaration//GEN-END:variables
 
     private void armarCabecera() {
@@ -161,5 +185,28 @@ public class CargaNotas extends javax.swing.JInternalFrame {
         modelo.addColumn("Nota");
         jTablaN.setModel(modelo);
 
+    }
+    private void armarCombo(){
+        List alumnos = aData.listarAlumnos();
+        for (Object alu: alumnos){
+            Alumno alumno = (Alumno) alu;
+            jcbAlumno.addItem(alumno);
+        }
+    }
+
+    private void armarTabla() {
+        limpiarTabla();
+        Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
+        List materia = iData.obtenerMateriasCursadas(alumno.getIdAlumno());
+        for (Object mat : materia) {
+            Inscripcion materias = (Inscripcion) mat;
+            modelo.addRow(new Object[]{materias.getMateria().getIdMateria(), materias.getMateria().getNombre(), materias.getNota()});
+        }
+    }
+
+    private void limpiarTabla() {
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            modelo.removeRow(0);
+        }
     }
 }

@@ -131,6 +131,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jAdmin.add(jMInscripciones);
 
         jMNotas.setText("Manipulacion de Notas");
+        jMNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMNotasActionPerformed(evt);
+            }
+        });
         jAdmin.add(jMNotas);
 
         jMenuBar1.add(jAdmin);
@@ -175,15 +180,18 @@ public class VistaPrincipal extends javax.swing.JFrame {
         FormularioAlumno formA = new FormularioAlumno();
         mostrarVista(formA);
     }//GEN-LAST:event_jFormulAActionPerformed
-    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {                                        
-             
+
+    private void jMNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMNotasActionPerformed
         jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
         CargaNotas formN = new CargaNotas();
         formN.setVisible(true);
         jDesktopPane1.add(formN);
         jDesktopPane1.moveToFront(formN); 
-    }    
+        
+    }//GEN-LAST:event_jMNotasActionPerformed
+                                         
+        
     /**
      * @param args the command line arguments
      */
