@@ -33,7 +33,8 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", activo=" + activo + '}';
+        //return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", activo=" + activo + '}';
+        return nombre+", "+anio; // Retorna solo nombre de materia y año para el combobox de la vista alumnosXMateria
     }
 
     public int getIdMateria() {

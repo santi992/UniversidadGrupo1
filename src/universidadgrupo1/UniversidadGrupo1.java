@@ -5,6 +5,8 @@
  */
 package universidadgrupo1;
 
+import vistas.VistaPrincipal;
+
 /**
  *
  * @author SANTIAGONB
@@ -15,7 +17,8 @@ public class UniversidadGrupo1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        VistaPrincipal principal = new VistaPrincipal();
+        principal.setVisible(true);
     }
     
 }
