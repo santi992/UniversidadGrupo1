@@ -214,7 +214,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ManejoInscripciones manejoI = new ManejoInscripciones();
         mostrarVista(manejoI);
     }//GEN-LAST:event_jMInscripcionesActionPerformed
+<<<<<<< HEAD
                             
+=======
+
+                                         
+>>>>>>> main
         
     /**
      * @param args the command line arguments
