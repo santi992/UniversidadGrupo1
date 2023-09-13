@@ -8,7 +8,6 @@ import accesoADatos.AlumnoData;
 import accesoADatos.InscripcionData;
 import entidades.Alumno;
 import entidades.Inscripcion;
-import entidades.Materia;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -154,9 +153,7 @@ private InscripcionData iData = new InscripcionData();
 
     private void jcbAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbAlumnoActionPerformed
        armarTabla();
-        
-
-
+    
     }//GEN-LAST:event_jcbAlumnoActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -164,11 +161,8 @@ private InscripcionData iData = new InscripcionData();
     }//GEN-LAST:event_jbSalirActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
-        actualizarNota();
-        
-        
-        
-        
+        actualizarNotas();
+               
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
@@ -212,14 +206,15 @@ private InscripcionData iData = new InscripcionData();
             modelo.removeRow(0);
         }
     }
-    public void actualizarNota(){
+
+    public void actualizarNotas() {
         int fila = modelo.getRowCount();
-        
-        for (int i=0; i < fila; i++){
+
+        for (int i = 0; i < fila; i++) {
+            int nota = Integer.parseInt((String)this.modelo.getValueAt(i, 2)) ;
+            int idMateria =(int) this.modelo.getValueAt(i, 0);
+            iData.actualizarNota(((Alumno) jcbAlumno.getSelectedItem()).getIdAlumno(), idMateria, nota);
             
-        int nota = (int) this.modelo.getValueAt(i, 2);
-        iData.actualizarNota(((Alumno)jcbAlumno.getSelectedItem()).getIdAlumno(),(int) modelo.getValueAt(i, 0),(int) modelo.getValueAt(i, 2));
-                  
         }
     }
 }
