@@ -130,6 +130,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jAdmin.setText("Administracion");
 
         jMInscripciones.setText("Manejo de Inscripciones");
+        jMInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMInscripcionesActionPerformed(evt);
+            }
+        });
         jAdmin.add(jMInscripciones);
 
         jMNotas.setText("Manipulacion de Notas");
@@ -188,6 +193,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mostrarVista(formN);
         
     }//GEN-LAST:event_jMNotasActionPerformed
+
+    private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
+        ManejoInscripciones manejoI = new ManejoInscripciones();
+        mostrarVista(manejoI);
+    }//GEN-LAST:event_jMInscripcionesActionPerformed
                                          
         
     /**
