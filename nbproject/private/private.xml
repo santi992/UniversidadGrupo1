@@ -3,29 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/GestionDeMaterias.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/AlumnoData.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/Conexion.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/AlumnosXMateria.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/CargaNotas.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/InscripcionData.java</file>
-            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/VistaPrincipal.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/GestionXMaterias.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/entidades/Alumno.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/MateriaData.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/FormularioAlumno.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/FormularioNotas.java</file>
-=======
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/entidades/Alumno.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/vistas/AlumnosXMateria.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/entidades/Materia.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/accesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/accesoADatos/InscripcionData.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/vistas/VistaPrincipal.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/vistas/CargaNotas.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/vistas/FormularioAlumno.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/ProyectoJavaApp/UniversidadGrupo1/src/entidades/Inscripcion.java</file>
->>>>>>> main
         </group>
     </open-files>
 </project-private>
