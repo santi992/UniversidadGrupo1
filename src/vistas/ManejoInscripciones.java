@@ -238,10 +238,10 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
             for (Materia mat : listMat) {       
                 System.out.println(mat);
             
-                modelo.addRow(new Object[]{mat});    
+//                modelo.addRow(new Object[]{mat});    
                 modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio()});    
             }
-            modelo.addRow(new Object[]{1,"papa","pepe"});    
+//            modelo.addRow(new Object[]{1,"papa","pepe"});    
 
         
         } else if (jrMateriaN.isSelected() == true && jrMateria.isSelected() == false) { //materias no inscriptas
