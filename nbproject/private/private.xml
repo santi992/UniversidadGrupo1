@@ -2,23 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-        <group/>
-=======
         <group>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/GestionDeMaterias.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/AlumnoData.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/Conexion.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/AlumnosXMateria.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/CargaNotas.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/InscripcionData.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/VistaPrincipal.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/entidades/Alumno.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/MateriaData.java</file>
-            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/accesoADatos/inscripcionData.java</file>
             <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/FormularioAlumno.java</file>
+            <file>file:/C:/Users/INTEL/Documents/Programación/git/UniversidadGrupo1/src/vistas/FormularioNotas.java</file>
         </group>
->>>>>>> Stashed changes
-=======
-        <group>
-            <file>file:/D:/OneDrive/Argentina%20Programa/Etapa%203%20-%20Aplicacion/Guia%205/UniversidadGrupo1/src/vistas/VistaPrincipal.java</file>
-        </group>
->>>>>>> main
     </open-files>
 </project-private>

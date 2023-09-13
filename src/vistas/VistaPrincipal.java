@@ -49,6 +49,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMNotas = new javax.swing.JMenuItem();
         jConsultas = new javax.swing.JMenu();
         jAlumxMat = new javax.swing.JMenuItem();
+        jMenuItemGxM = new javax.swing.JMenuItem();
         jSalir = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -152,6 +153,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
         });
         jConsultas.add(jAlumxMat);
 
+        jMenuItemGxM.setText("Gestion de Materias");
+        jMenuItemGxM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGxMActionPerformed(evt);
+            }
+        });
+        jConsultas.add(jMenuItemGxM);
+
         jMenuBar1.add(jConsultas);
 
         jSalir.setText("Salir");
@@ -188,6 +197,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mostrarVista(formN);
         
     }//GEN-LAST:event_jMNotasActionPerformed
+
+    private void jMenuItemGxMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGxMActionPerformed
+        GestionXMaterias gxm= new GestionXMaterias();
+        gxm.setVisible(true);
+        mostrarVista(gxm);
+    }//GEN-LAST:event_jMenuItemGxMActionPerformed
                                          
         
     /**
@@ -251,6 +266,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItemGxM;
     private javax.swing.JMenu jSalir;
     // End of variables declaration//GEN-END:variables
 

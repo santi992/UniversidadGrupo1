@@ -59,6 +59,12 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Estado:");
 
+        jrbEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbEstadoActionPerformed(evt);
+            }
+        });
+
         jLabel6.setText("Fecha de Nacimiento: ");
 
         jbBuscar.setText("Buscar");
@@ -278,6 +284,10 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jDateChooser1.setDate(null);
         jrbEstado.setSelected(false);
     }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbEstadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
