@@ -38,6 +38,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jAlumno = new javax.swing.JMenu();
@@ -91,6 +92,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem1.setText("jMenuItem1");
 
         jMenuItem4.setText("jMenuItem4");
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 102, 255));
@@ -209,9 +212,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         ManejoInscripciones manejoI = new ManejoInscripciones();
         mostrarVista(manejoI);
     }//GEN-LAST:event_jMInscripcionesActionPerformed
-<<<<<<< HEAD
+
                             
-=======
+
 
     private void jConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultasActionPerformed
         // TODO add your handling code here:
@@ -224,7 +227,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormulMActionPerformed
 
                                          
->>>>>>> main
+
         
     /**
      * @param args the command line arguments
@@ -287,6 +290,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenu jSalir;
     // End of variables declaration//GEN-END:variables
 

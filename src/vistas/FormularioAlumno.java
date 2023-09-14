@@ -53,6 +53,12 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Documento: ");
 
+        jtDocumento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDocumentoActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Apellido:");
 
         jLabel4.setText("Nombre:");
@@ -288,6 +294,10 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jrbEstadoActionPerformed
+
+    private void jtDocumentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDocumentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDocumentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
