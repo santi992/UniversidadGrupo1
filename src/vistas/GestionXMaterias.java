@@ -159,10 +159,12 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         MateriaData md= new MateriaData();
-        Materia m=  md.buscarMateria(Integer.parseInt(jbBuscar.getText()));
+        Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+        System.out.println(m);
         jtfCodigo.setText(String.valueOf(m.getIdMateria()));
         jtfNombre.setText(m.getNombre());
         jtfAnio.setText(String.valueOf(m.getAnio()));
+        jrbEstado.setSelected(true);
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
