@@ -202,8 +202,8 @@ private InscripcionData iData = new InscripcionData();
     }
 
     private void limpiarTabla() {
-        for (int i = 0; i < modelo.getRowCount(); i++) {
-            modelo.removeRow(0);
+        for (int i = modelo.getRowCount(); i > 0; i--) {
+            modelo.removeRow(i-1);
         }
     }
 
@@ -211,7 +211,8 @@ private InscripcionData iData = new InscripcionData();
         int fila = modelo.getRowCount();
 
         for (int i = 0; i < fila; i++) {
-            int nota = Integer.parseInt((String)this.modelo.getValueAt(i, 2)) ;
+            int nota = (int)this.modelo.getValueAt(i, 2) ;
+            
             int idMateria =(int) this.modelo.getValueAt(i, 0);
             iData.actualizarNota(((Alumno) jcbAlumno.getSelectedItem()).getIdAlumno(), idMateria, nota);
             
