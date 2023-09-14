@@ -49,7 +49,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMNotas = new javax.swing.JMenuItem();
         jConsultas = new javax.swing.JMenu();
         jAlumxMat = new javax.swing.JMenuItem();
-        jMenuItemGxM = new javax.swing.JMenuItem();
         jSalir = new javax.swing.JMenu();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
@@ -124,6 +123,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMateria.setText("Materia");
 
         jFormulM.setText("Formulario de Materia");
+        jFormulM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormulMActionPerformed(evt);
+            }
+        });
         jMateria.add(jFormulM);
 
         jMenuBar1.add(jMateria);
@@ -149,6 +153,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jAdmin);
 
         jConsultas.setText("Consultas");
+        jConsultas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jConsultasActionPerformed(evt);
+            }
+        });
 
         jAlumxMat.setText("Alumnos por Materia");
         jAlumxMat.addActionListener(new java.awt.event.ActionListener() {
@@ -157,14 +166,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
             }
         });
         jConsultas.add(jAlumxMat);
-
-        jMenuItemGxM.setText("Gestion de Materias");
-        jMenuItemGxM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGxMActionPerformed(evt);
-            }
-        });
-        jConsultas.add(jMenuItemGxM);
 
         jMenuBar1.add(jConsultas);
 
@@ -204,12 +205,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMNotasActionPerformed
 
 
-    private void jMenuItemGxMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGxMActionPerformed
-        GestionXMaterias gxm= new GestionXMaterias();
-        gxm.setVisible(true);
-        mostrarVista(gxm);
-    }//GEN-LAST:event_jMenuItemGxMActionPerformed
-
     private void jMInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMInscripcionesActionPerformed
         ManejoInscripciones manejoI = new ManejoInscripciones();
         mostrarVista(manejoI);
@@ -217,6 +212,16 @@ public class VistaPrincipal extends javax.swing.JFrame {
 <<<<<<< HEAD
                             
 =======
+
+    private void jConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jConsultasActionPerformed
+
+    private void jFormulMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormulMActionPerformed
+        GestionXMaterias gxm= new GestionXMaterias();
+        mostrarVista(gxm);
+
+    }//GEN-LAST:event_jFormulMActionPerformed
 
                                          
 >>>>>>> main
@@ -282,7 +287,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItemGxM;
     private javax.swing.JMenu jSalir;
     // End of variables declaration//GEN-END:variables
 

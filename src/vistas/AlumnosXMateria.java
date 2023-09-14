@@ -45,6 +45,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
 
         setTitle("Listado de alumnos por materia");
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/g1icon.png"))); // NOI18N
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(500, 400));
 
@@ -165,8 +166,8 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
     }
     
     private void limpiarTabla(){
-        for (int i = 0; i < modelo.getRowCount(); i++) {
-            modelo.removeRow(0);
+        for (int i = modelo.getRowCount(); i > 0 ; i--) {
+            modelo.removeRow(i-1);
         }
     }
     
@@ -174,10 +175,19 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         limpiarTabla();
         Materia materia = (Materia) jcElegirMateria.getSelectedItem();
         List alumnos = iData.obtenerAlumnosXMateria(materia.getIdMateria());
+        System.out.println(alumnos.size());
+        
         for (Object alu: alumnos) {
             Alumno alumno = (Alumno) alu;
             modelo.addRow(new Object[] {alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
         }
+        
+        /**
+        for (int i = 0; i < alumnos.size(); i++) {
+            Alumno alumno = (Alumno) alumnos.get(i);
+            modelo.addRow(new Object[] {alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
+        }
+        */
     }
 
 }
