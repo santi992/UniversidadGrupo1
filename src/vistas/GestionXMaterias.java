@@ -7,6 +7,8 @@ package vistas;
 
 import accesoADatos.MateriaData;
 import entidades.Materia;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -181,15 +183,21 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
-        MateriaData md= new MateriaData();
-        Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-        System.out.println(m);
-        jtfCodigo.setText(String.valueOf(m.getIdMateria()));
-        jtfNombre.setText(m.getNombre());
-        jtfAnio.setText(String.valueOf(m.getAnio()));
-        jrbEstado.setSelected(true);
-        jbEliminar.setEnabled(true);
-        jtfCodigo.setEditable(false);
+        try {
+
+            MateriaData md= new MateriaData();
+            Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+            System.out.println(m);
+            jtfCodigo.setText(String.valueOf(m.getIdMateria()));
+            jtfNombre.setText(m.getNombre());
+            jtfAnio.setText(String.valueOf(m.getAnio()));
+            jrbEstado.setSelected(true);
+            jbEliminar.setEnabled(true);
+            jtfCodigo.setEditable(false);
+
+        } catch (NumberFormatException nf) {
+               JOptionPane.showMessageDialog(null, "El código ingresado debe ser un número");
+        }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
@@ -222,26 +230,47 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
      
        MateriaData md= new MateriaData();
        
-       
-       if(!jtfCodigo.getText().isEmpty()){
-            Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-            m.setNombre(jtfNombre.getText());
-            m.setAnio(Integer.parseInt(jtfAnio.getText()));
-            m.setActivo(jrbEstado.isSelected());
-            md.modificarMateria(m);
-            jtfNombre.setText("");
-            jtfCodigo.setText("");
-            jtfAnio.setText("");
-            jrbEstado.setSelected(false);
-        } else{
-             // guardar materia... Quemadisima!! seguir mañana 
-            Materia m = new Materia();
-            m.setNombre(jtfNombre.getText());
-            m.setAnio(Integer.parseInt(jtfAnio.getText()));
-            m.setActivo(jrbEstado.isSelected());
-            md.guardarMateria(m);
+       try {
+            if(!jtfCodigo.getText().isEmpty()){
 
-     }
+                     Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+                     m.setNombre(jtfNombre.getText());
+                     m.setAnio(Integer.parseInt(jtfAnio.getText()));
+                     m.setActivo(jrbEstado.isSelected());
+                     md.modificarMateria(m);
+                     jtfNombre.setText("");
+                     jtfCodigo.setText("");
+                     jtfCodigo.setEditable(true);
+                     jtfAnio.setText("");
+                     jrbEstado.setSelected(false);
+
+
+             } else{
+                  // guardar materia... Quemadisima!! seguir mañana
+                 List<Materia> materias = md.listarMaterias();
+                 boolean repetida = false;
+                 String nombre = jtfNombre.getText();
+                 for (Materia mat: materias){
+                     if (mat.getNombre().equalsIgnoreCase(nombre)) {
+                         JOptionPane.showMessageDialog(null, "Se ha encontrada una materia con ese nombre");
+                         repetida = true;
+                         break;
+                     }
+                 }
+
+                 if (!repetida) {
+                     Materia m = new Materia();
+                     m.setNombre(nombre);
+                     m.setAnio(Integer.parseInt(jtfAnio.getText()));
+                     m.setActivo(jrbEstado.isSelected());
+                     md.guardarMateria(m);
+                 }
+
+
+          }
+    } catch (NumberFormatException nf) {
+               JOptionPane.showMessageDialog(null, "El año ingresado debe ser un número");
+    }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
