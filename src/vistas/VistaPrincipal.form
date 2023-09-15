@@ -199,6 +199,10 @@
           <Color blue="e0" green="b5" red="8a" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane() {&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(fondoImagen,0,0,getWidth(),getHeight(),this);&#xa;    }&#xa;&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon fondoIcon = new ImageIcon(getClass().getResource(&quot;/imagenes/fondo_ulp.png&quot;));&#xa; Image fondoImagen = fondoIcon.getImage();"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

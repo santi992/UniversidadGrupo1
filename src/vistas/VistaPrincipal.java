@@ -6,6 +6,9 @@
 package vistas;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 
@@ -40,7 +43,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        ImageIcon fondoIcon = new ImageIcon(getClass().getResource("/imagenes/fondo_ulp.png"));
+        Image fondoImagen = fondoIcon.getImage();
+        jDesktopPane1 = new javax.swing.JDesktopPane() {
+
+            public void paintComponent(Graphics g){
+                g.drawImage(fondoImagen,0,0,getWidth(),getHeight(),this);
+            }
+
+        };
         jMenuBar1 = new javax.swing.JMenuBar();
         jAlumno = new javax.swing.JMenu();
         jFormulA = new javax.swing.JMenuItem();
