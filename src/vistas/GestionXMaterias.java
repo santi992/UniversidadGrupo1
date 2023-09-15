@@ -228,35 +228,37 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         // si usuario no busca y llena campos--> el boton Guardar se usa para guardar una materia
      // ** PARA MODIFICAR ***
      
-       MateriaData md= new MateriaData();
-       
-       try {
-            if(!jtfCodigo.getText().isEmpty()){
-
-                     Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-                     m.setNombre(jtfNombre.getText());
-                     m.setAnio(Integer.parseInt(jtfAnio.getText()));
-                     m.setActivo(jrbEstado.isSelected());
-                     md.modificarMateria(m);
-                     jtfNombre.setText("");
-                     jtfCodigo.setText("");
-                     jtfCodigo.setEditable(true);
-                     jtfAnio.setText("");
-                     jrbEstado.setSelected(false);
-
-
-             } else{
-                  // guardar materia... Quemadisima!! seguir mañana
-                 List<Materia> materias = md.listarMaterias();
+        MateriaData md = new MateriaData();
+        List<Materia> materias = md.listarMaterias();
                  boolean repetida = false;
                  String nombre = jtfNombre.getText();
                  for (Materia mat: materias){
                      if (mat.getNombre().equalsIgnoreCase(nombre)) {
-                         JOptionPane.showMessageDialog(null, "Se ha encontrada una materia con ese nombre");
+                         JOptionPane.showMessageDialog(null, "Se ha encontrado una materia con ese nombre");
                          repetida = true;
                          break;
                      }
                  }
+        try {
+            if(!jtfCodigo.getText().isEmpty()){
+                
+
+                if (!repetida) {
+
+                    Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+                    m.setNombre(jtfNombre.getText());
+                    m.setAnio(Integer.parseInt(jtfAnio.getText()));
+                    m.setActivo(jrbEstado.isSelected());
+                    md.modificarMateria(m);
+                    jtfNombre.setText("");
+                    jtfCodigo.setText("");
+                    jtfCodigo.setEditable(true);
+                    jtfAnio.setText("");
+                    jrbEstado.setSelected(false);
+                }
+
+            } else{
+                  // guardar materia... Quemadisima!! seguir mañana
 
                  if (!repetida) {
                      Materia m = new Materia();
@@ -266,11 +268,12 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
                      md.guardarMateria(m);
                  }
 
-
           }
     } catch (NumberFormatException nf) {
                JOptionPane.showMessageDialog(null, "El año ingresado debe ser un número");
     }
+   
+      
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 
