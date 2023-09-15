@@ -7,6 +7,7 @@ package vistas;
 
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -173,6 +174,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jConsultas);
 
         jSalir.setText("Salir");
+        jSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jSalirMouseClicked(evt);
+            }
+        });
         jSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jSalirActionPerformed(evt);
@@ -234,6 +240,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jSalirActionPerformed
+
+    private void jSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jSalirMouseClicked
+        // TODO add your handling code here:
+        int confirmacion = JOptionPane.showConfirmDialog(null, "¿Estás seguro de que quieres salir?", "Confirmar Salida", JOptionPane.YES_NO_OPTION);
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jSalirMouseClicked
 
                                          
 
