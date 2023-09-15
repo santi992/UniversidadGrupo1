@@ -43,6 +43,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         jtfNombre = new javax.swing.JTextField();
         jtfAnio = new javax.swing.JTextField();
         jrbEstado = new javax.swing.JRadioButton();
+        jbSalir = new javax.swing.JButton();
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel1.setText("Materia");
@@ -56,6 +57,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         jLabel5.setText("Estado:");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.setEnabled(false);
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
@@ -63,6 +65,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.setEnabled(false);
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEliminarActionPerformed(evt);
@@ -70,6 +73,11 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +89,13 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         jrbEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jrbEstadoActionPerformed(evt);
+            }
+        });
+
+        jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
             }
         });
 
@@ -110,19 +125,23 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
                                 .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jbNuevo)
-                        .addGap(39, 39, 39)
-                        .addComponent(jbEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbBuscar)
-                            .addComponent(jbGuardar))
-                        .addGap(34, 34, 34))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 226, Short.MAX_VALUE)
+                        .addComponent(jbBuscar)
+                        .addGap(39, 39, 39))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(159, 159, 159)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jbNuevo)
+                .addGap(22, 22, 22)
+                .addComponent(jbEliminar)
+                .addGap(21, 21, 21)
+                .addComponent(jbGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbSalir)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,11 +166,15 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
                     .addComponent(jLabel5)
                     .addComponent(jrbEstado))
                 .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbNuevo)
-                    .addComponent(jbEliminar)
-                    .addComponent(jbGuardar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jbNuevo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbEliminar)
+                        .addComponent(jbSalir)))
+                .addContainerGap())
         );
 
         pack();
@@ -165,6 +188,8 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         jtfNombre.setText(m.getNombre());
         jtfAnio.setText(String.valueOf(m.getAnio()));
         jrbEstado.setSelected(true);
+        jbEliminar.setEnabled(true);
+        jtfCodigo.setEditable(false);
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jrbEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbEstadoActionPerformed
@@ -178,10 +203,41 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
        
        MateriaData md= new MateriaData();
-       Materia m=  md.buscarMateria(Integer.parseInt(jbBuscar.getText()));
+       Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
        md.eliminarMateria(m.getIdMateria());
-        
+        jtfCodigo.setText("");
+        jtfNombre.setText("");
+        jtfAnio.setText("");
+        jrbEstado.setSelected(false);
     }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+       //si el usuario busca una materia --> boton Guardar se usa como MOdificar
+        // si usuario no busca y llena campos--> el boton Guardar se usa para guardar una materia
+     // ** PARA MODIFICAR ***
+     
+       MateriaData md= new MateriaData();
+       Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+       if(jtfCodigo.getText()!= null){
+       m.setNombre(jtfNombre.getText());
+       m.setAnio(Integer.parseInt(jtfAnio.getText()));
+       m.setActivo(jrbEstado.isSelected());
+       md.modificarMateria(m);
+       jtfNombre.setText("");
+       jtfCodigo.setText("");
+       jtfAnio.setText("");
+       jrbEstado.setSelected(false);
+     } else{
+        // guardar materia... Quemadisima!! seguir mañana 
+       
+     }
+   
+      
+    }//GEN-LAST:event_jbGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -194,6 +250,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbEliminar;
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
+    private javax.swing.JButton jbSalir;
     private javax.swing.JRadioButton jrbEstado;
     private javax.swing.JTextField jtfAnio;
     private javax.swing.JTextField jtfCodigo;

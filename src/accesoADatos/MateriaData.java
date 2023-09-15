@@ -24,7 +24,7 @@ public class MateriaData {
     }
 
     public void guardarMateria(Materia materia) {
-
+        
         String sql = "INSERT INTO materia (nombre, anio, estado) VALUES (?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
