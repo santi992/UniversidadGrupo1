@@ -5,10 +5,7 @@
  */
 package universidadgrupo1;
 
-import accesoADatos.AlumnoData;
 import accesoADatos.Conexion;
-import accesoADatos.InscripcionData;
-import accesoADatos.MateriaData;
 import entidades.Alumno;
 import entidades.Inscripcion;
 import entidades.Materia;
@@ -41,22 +38,34 @@ public class UniversidadGrupo1 {
     }
     
     public static void limpiarDatos(){
+        
         System.out.println("Reiniciando base de datos...");
         Connection con = Conexion.conectar();
         PreparedStatement ps;
         try {
-            String insc = "DELETE FROM inscripcion";
+            String insc = "DROP TABLE IF EXISTS inscripcion";
             ps = con.prepareStatement(insc);
             ps.executeUpdate();
             
-            String mat = "DELETE FROM materia";
+            String mat = "DROP TABLE IF EXISTS materia";
             ps = con.prepareStatement(mat);
             ps.executeUpdate();
             
-            String alu = "DELETE FROM alumno";
+            String alu = "DROP TABLE IF EXISTS alumno";
             ps = con.prepareStatement(alu);
             ps.executeUpdate();
             
+            String crinsc = "CREATE TABLE IF NOT EXISTS universidad_grupo1.inscripcion (idInscripto INT(11) NOT NULL AUTO_INCREMENT , nota INT(11) NOT NULL , idAlumno INT(11) NOT NULL , idMateria INT(11) NOT NULL , PRIMARY KEY (idInscripto)) ENGINE = InnoDB";
+            ps = con.prepareStatement(crinsc);
+            ps.executeUpdate();
+            
+            String crmat = "CREATE TABLE IF NOT EXISTS universidad_grupo1.alumno (idAlumno INT(11) NOT NULL AUTO_INCREMENT , dni INT(11) NOT NULL , apellido VARCHAR(100) NOT NULL , nombre VARCHAR(100) NOT NULL , fechaNacimiento DATE NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idAlumno), UNIQUE dni (dni)) ENGINE = InnoDB";
+            ps = con.prepareStatement(crmat);
+            ps.executeUpdate();
+            
+            String cralu = "CREATE TABLE IF NOT EXISTS universidad_grupo1.materia (idMateria INT(11) NOT NULL AUTO_INCREMENT , nombre VARCHAR(100) NOT NULL , anio INT(11) NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idMateria), UNIQUE dni (nombre)) ENGINE = InnoDB";
+            ps = con.prepareStatement(cralu);
+            ps.executeUpdate();
             ps.close();
             
         } catch (SQLException ex) {

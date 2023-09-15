@@ -221,22 +221,27 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
      // ** PARA MODIFICAR ***
      
        MateriaData md= new MateriaData();
-       Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-       if(jtfCodigo.getText()!= null){
-       m.setNombre(jtfNombre.getText());
-       m.setAnio(Integer.parseInt(jtfAnio.getText()));
-       m.setActivo(jrbEstado.isSelected());
-       md.modificarMateria(m);
-       jtfNombre.setText("");
-       jtfCodigo.setText("");
-       jtfAnio.setText("");
-       jrbEstado.setSelected(false);
-     } else{
-        // guardar materia... Quemadisima!! seguir mañana 
        
+       
+       if(!jtfCodigo.getText().isEmpty()){
+            Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+            m.setNombre(jtfNombre.getText());
+            m.setAnio(Integer.parseInt(jtfAnio.getText()));
+            m.setActivo(jrbEstado.isSelected());
+            md.modificarMateria(m);
+            jtfNombre.setText("");
+            jtfCodigo.setText("");
+            jtfAnio.setText("");
+            jrbEstado.setSelected(false);
+        } else{
+             // guardar materia... Quemadisima!! seguir mañana 
+            Materia m = new Materia();
+            m.setNombre(jtfNombre.getText());
+            m.setAnio(Integer.parseInt(jtfAnio.getText()));
+            m.setActivo(jrbEstado.isSelected());
+            md.guardarMateria(m);
+
      }
-   
-      
     }//GEN-LAST:event_jbGuardarActionPerformed
 
 

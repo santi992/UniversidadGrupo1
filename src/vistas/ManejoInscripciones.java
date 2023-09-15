@@ -212,7 +212,14 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbInscripcionActionPerformed
 
     private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
-        // TODO add your handling code here:
+        InscripcionData inscriD = new InscripcionData();
+        Alumno alu = (Alumno) jcSelecAl.getSelectedItem();
+        MateriaData materiaD = new MateriaData();
+        int fila = jtInscripcion.getSelectedRow();
+        int idMateria = (int) jtInscripcion.getValueAt(fila, 0);
+        
+        inscriD.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), idMateria);
+        cargarDatos(alumno);
     }//GEN-LAST:event_jbAnularActionPerformed
 
     

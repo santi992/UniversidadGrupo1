@@ -208,13 +208,23 @@ private InscripcionData iData = new InscripcionData();
     }
 
     public void actualizarNotas() {
-        int fila = modelo.getRowCount();
-
-        for (int i = 0; i < fila; i++) {
-            int nota = (int)this.modelo.getValueAt(i, 2) ;
+        int filas = modelo.getRowCount();
+        Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
+        List<Inscripcion> inscripciones = iData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
+        int nota = 0;
+        for (int i = 0; i < filas; i++) {
             
             int idMateria =(int) this.modelo.getValueAt(i, 0);
-            iData.actualizarNota(((Alumno) jcbAlumno.getSelectedItem()).getIdAlumno(), idMateria, nota);
+            
+            try {
+                nota = (int)this.modelo.getValueAt(i, 2) ;
+            } catch (java.lang.ClassCastException ce) {
+                nota = Integer.parseInt((String)this.modelo.getValueAt(i, 2)) ;
+            }
+            
+            if(nota != inscripciones.get(i).getNota()){
+                iData.actualizarNota(alumno.getIdAlumno(), idMateria, nota);
+            }
             
         }
     }
