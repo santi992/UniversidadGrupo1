@@ -173,6 +173,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jConsultas);
 
         jSalir.setText("Salir");
+        jSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jSalir);
 
         setJMenuBar(jMenuBar1);
@@ -225,6 +230,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         mostrarVista(gxm);
 
     }//GEN-LAST:event_jFormulMActionPerformed
+
+    private void jSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSalirActionPerformed
 
                                          
 
