@@ -7,7 +7,9 @@ package vistas;
 
 import accesoADatos.AlumnoData;
 import accesoADatos.InscripcionData;
+import accesoADatos.MateriaData;
 import entidades.Alumno;
+import entidades.Inscripcion;
 import entidades.Materia;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -81,8 +83,18 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
         });
 
         jbInscripcion.setText("Inscribir");
+        jbInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInscripcionActionPerformed(evt);
+            }
+        });
 
         jbAnular.setText("Anular Inscripcion");
+        jbAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAnularActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -172,19 +184,36 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jrMateriaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaNActionPerformed
-        cargarDatos(alumno);
-        
-
+        jrMateria.setSelected(false);
+        cargarDatos((Alumno)jcSelecAl.getSelectedItem());
     }//GEN-LAST:event_jrMateriaNActionPerformed
 
     private void jrMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrMateriaActionPerformed
-        cargarDatos(alumno);
-
+        jrMateriaN.setSelected(false);
+        cargarDatos((Alumno)jcSelecAl.getSelectedItem());
     }//GEN-LAST:event_jrMateriaActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
      this.dispose();
     }//GEN-LAST:event_jbSalirActionPerformed
+
+    private void jbInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInscripcionActionPerformed
+        InscripcionData inscriD = new InscripcionData();
+        Alumno alu = (Alumno) jcSelecAl.getSelectedItem();
+        MateriaData materiaD = new MateriaData();
+        int fila = jtInscripcion.getSelectedRow();
+        int id = (int) jtInscripcion.getValueAt(fila, 0);
+        Materia mat = materiaD.buscarMateria(id);
+        Inscripcion ins = new Inscripcion();
+        ins.setAlumno(alu);
+        ins.setMateria(mat);
+        inscriD.guardarInscripcion(ins);
+        cargarDatos(alumno);
+    }//GEN-LAST:event_jbInscripcionActionPerformed
+
+    private void jbAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAnularActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbAnularActionPerformed
 
     
 
@@ -221,7 +250,13 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
         }
     }
     
+        private void limpiarTabla(){
+        for (int i = modelo.getRowCount(); i > 0 ; i--) {
+            modelo.removeRow(i-1);
+        }
+    }
     private void cargarDatos(Alumno alumno) {
+       limpiarTabla();
         InscripcionData inscripcion = new InscripcionData();
 
         Object  alumnoObjeto =jcSelecAl.getSelectedItem();
@@ -238,16 +273,25 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
             for (Materia mat : listMat) {       
                 System.out.println(mat);
             
-//                modelo.addRow(new Object[]{mat});    
+   
                 modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio()});    
             }
-//            modelo.addRow(new Object[]{1,"papa","pepe"});    
-
+ 
+            
         
         } else if (jrMateriaN.isSelected() == true && jrMateria.isSelected() == false) { //materias no inscriptas
             jbAnular.setEnabled(false);
             jbInscripcion.setEnabled(true);
-            modelo.addRow(new Object[]{"dulce de leche"});
+           
+            List <Materia>  listMatNoI =inscripcion.obtenerMateriasNoCursadas(alumnoDatos.getIdAlumno());
+            for (Materia mat : listMatNoI) {       
+                System.out.println(mat);
+            
+   
+                modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio()});    
+                
+            }
+
 
         } else {
             jbAnular.setEnabled(false);
