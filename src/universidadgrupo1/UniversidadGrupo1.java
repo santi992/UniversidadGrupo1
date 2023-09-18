@@ -59,11 +59,11 @@ public class UniversidadGrupo1 {
             ps = con.prepareStatement(crinsc);
             ps.executeUpdate();
             
-            String crmat = "CREATE TABLE IF NOT EXISTS universidad_grupo1.alumno (idAlumno INT(11) NOT NULL AUTO_INCREMENT , dni INT(11) NOT NULL , apellido VARCHAR(100) NOT NULL , nombre VARCHAR(100) NOT NULL , fechaNacimiento DATE NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idAlumno), UNIQUE dni (dni)) ENGINE = InnoDB";
+            String crmat = "CREATE TABLE IF NOT EXISTS universidad_grupo1.alumno (idAlumno INT(11) NOT NULL AUTO_INCREMENT , dni INT(11) NOT NULL , apellido VARCHAR(100) NOT NULL , nombre VARCHAR(100) NOT NULL , fechaNacimiento DATE NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idAlumno), UNIQUE nombre (nombre)) ENGINE = InnoDB";
             ps = con.prepareStatement(crmat);
             ps.executeUpdate();
             
-            String cralu = "CREATE TABLE IF NOT EXISTS universidad_grupo1.materia (idMateria INT(11) NOT NULL AUTO_INCREMENT , nombre VARCHAR(100) NOT NULL , anio INT(11) NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idMateria), UNIQUE dni (nombre)) ENGINE = InnoDB";
+            String cralu = "CREATE TABLE IF NOT EXISTS universidad_grupo1.materia (idMateria INT(11) NOT NULL AUTO_INCREMENT , nombre VARCHAR(100) NOT NULL , anio INT(11) NOT NULL , estado TINYINT(1) NOT NULL , PRIMARY KEY (idMateria), UNIQUE dni (dni)) ENGINE = InnoDB";
             ps = con.prepareStatement(cralu);
             ps.executeUpdate();
             ps.close();
