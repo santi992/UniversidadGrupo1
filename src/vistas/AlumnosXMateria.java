@@ -48,7 +48,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         setTitle("Listado de alumnos por materia");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ulp_icon.png"))); // NOI18N
         setName(""); // NOI18N
-        setPreferredSize(new java.awt.Dimension(500, 400));
+        setPreferredSize(new java.awt.Dimension(500, 420));
 
         jlTitulo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlTitulo.setForeground(new java.awt.Color(0, 0, 0));
@@ -122,7 +122,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
                 .addComponent(jSccrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
