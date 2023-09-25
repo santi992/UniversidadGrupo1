@@ -229,6 +229,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
         jtfNombre.setText("");
         jtfAnio.setText("");
         jrbEstado.setSelected(false);
+        jtfCodigo.setEditable(true);
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
