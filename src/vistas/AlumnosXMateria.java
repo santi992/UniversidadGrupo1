@@ -44,12 +44,13 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         jTabla = new javax.swing.JTable();
         jbSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 153, 255));
         setTitle("Listado de alumnos por materia");
-        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/g1icon.png"))); // NOI18N
+        setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ulp_icon.png"))); // NOI18N
         setName(""); // NOI18N
         setPreferredSize(new java.awt.Dimension(500, 400));
 
-        jlTitulo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jlTitulo.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jlTitulo.setForeground(new java.awt.Color(0, 0, 0));
         jlTitulo.setText("Listado de alumnos por materia");
 
@@ -59,6 +60,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
             }
         });
 
+        jlSeleccione.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jlSeleccione.setForeground(new java.awt.Color(0, 0, 0));
         jlSeleccione.setText("Seleccione una materia:");
 
@@ -75,8 +77,10 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         ));
         jSccrollTabla.setViewportView(jTabla);
 
+        jbSalir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jbSalir.setForeground(new java.awt.Color(0, 0, 0));
         jbSalir.setText("Salir");
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbSalirActionPerformed(evt);
@@ -118,7 +122,7 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
                 .addComponent(jSccrollTabla, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbSalir)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -175,19 +179,11 @@ public class AlumnosXMateria extends javax.swing.JInternalFrame {
         limpiarTabla();
         Materia materia = (Materia) jcElegirMateria.getSelectedItem();
         List alumnos = iData.obtenerAlumnosXMateria(materia.getIdMateria());
-        System.out.println(alumnos.size());
         
         for (Object alu: alumnos) {
             Alumno alumno = (Alumno) alu;
             modelo.addRow(new Object[] {alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
         }
-        
-        /**
-        for (int i = 0; i < alumnos.size(); i++) {
-            Alumno alumno = (Alumno) alumnos.get(i);
-            modelo.addRow(new Object[] {alumno.getIdAlumno(), alumno.getDni(), alumno.getApellido(), alumno.getNombre()});
-        }
-        */
     }
 
 }
