@@ -103,6 +103,12 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
             }
         });
 
+        jcSelecAl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcSelecAlActionPerformed(evt);
+            }
+        });
+
         jtInscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -221,6 +227,13 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
         inscriD.borrarInscripcionMateriaAlumno(alu.getIdAlumno(), idMateria);
         cargarDatos(alumno);
     }//GEN-LAST:event_jbAnularActionPerformed
+
+    private void jcSelecAlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcSelecAlActionPerformed
+        jrMateria.setSelected(false);
+        jrMateriaN.setSelected(false);
+         cargarDatos(alumno);
+         
+    }//GEN-LAST:event_jcSelecAlActionPerformed
 
     
 
