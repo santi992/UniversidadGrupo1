@@ -108,6 +108,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de gestión universitario");
         setBackground(new java.awt.Color(51, 102, 255));
 
         jDesktopPane1.setBackground(new java.awt.Color(138, 181, 224));
