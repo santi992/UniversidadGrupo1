@@ -67,7 +67,7 @@ public class AlumnoData {
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(true);// es estado, me toma como activo xq el atributo en la clase alumno del paquete entidades se llama activo
             } else {
-                JOptionPane.showMessageDialog(null, "No existe el alumno");
+                JOptionPane.showMessageDialog(null, "El alumno no existe o se encuentra inactivo");
                 ps.close();
             }
         }
@@ -124,7 +124,7 @@ public class AlumnoData {
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumno.setActivo(true);// es estado, me toma como activo xq el atributo en la clase alumno del paquete entidades se llama activo
             } else {
-                JOptionPane.showMessageDialog(null, "No existe el alumno");
+                JOptionPane.showMessageDialog(null, "No existe el alumno o se enuentra inactivo.");
                 ps.close();
             }
         }
@@ -163,7 +163,7 @@ public class AlumnoData {
 
 
 public void modificarAlumno(Alumno alumno){
-    String sql="UPDATE alumno SET dni=?, apellido=?,nombre=?,fechaNacimiento=? WHERE idAlumno=?";
+    String sql="UPDATE alumno SET dni = ?, apellido = ?,nombre = ?,fechaNacimiento = ?, estado = ? WHERE idAlumno=?";
     PreparedStatement ps=null;
         try {
             ps= con.prepareStatement(sql);
@@ -171,7 +171,8 @@ public void modificarAlumno(Alumno alumno){
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
-            ps.setInt(5, alumno.getIdAlumno());
+            ps.setBoolean(5, alumno.isActivo());
+            ps.setInt(6, alumno.getIdAlumno());
             int exito= ps.executeUpdate();
             if (exito==1){
                 JOptionPane.showMessageDialog(null, "Modificado exitosamente.");
