@@ -224,15 +224,15 @@ private InscripcionData iData = new InscripcionData();
         int filas = modelo.getRowCount();
         Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
         List<Inscripcion> inscripciones = iData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
-        int nota = 0;
+        double nota;
         for (int i = 0; i < filas; i++) {
             
             int idMateria =(int) this.modelo.getValueAt(i, 0);
             
             try {
-                nota = (int)this.modelo.getValueAt(i, 2) ;
+                nota = (double)this.modelo.getValueAt(i, 2) ;
             } catch (java.lang.ClassCastException ce) {
-                nota = Integer.parseInt((String)this.modelo.getValueAt(i, 2)) ;
+                nota = Double.parseDouble((String)this.modelo.getValueAt(i, 2)) ;
             }
             
             if(nota != inscripciones.get(i).getNota()){

@@ -11,18 +11,18 @@ package entidades;
 public class Inscripcion {
     
     private int idInscripto;
-    private int nota;
+    private double nota;
     private Alumno alumno;
     private Materia materia;
 
-    public Inscripcion(int idInscripto, int nota, Alumno alumno, Materia materia) {
+    public Inscripcion(int idInscripto, double nota, Alumno alumno, Materia materia) {
         this.idInscripto = idInscripto;
         this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
     }
 
-    public Inscripcion(int nota, Alumno alumno, Materia materia) {
+    public Inscripcion(double nota, Alumno alumno, Materia materia) {
         this.nota = nota;
         this.alumno = alumno;
         this.materia = materia;
@@ -44,11 +44,11 @@ public class Inscripcion {
         this.idInscripto = idInscripto;
     }
 
-    public int getNota() {
+    public double getNota() {
         return nota;
     }
 
-    public void setNota(int nota) {
+    public void setNota(double nota) {
         this.nota = nota;
     }
 
