@@ -94,6 +94,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbNuevo.setForeground(new java.awt.Color(0, 0, 0));
         jbNuevo.setText("Nuevo");
         jbNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbNuevo.setEnabled(false);
         jbNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoActionPerformed(evt);
@@ -114,6 +115,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jbEliminar.setForeground(new java.awt.Color(0, 0, 0));
         jbEliminar.setText("Eliminar");
         jbEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbEliminar.setEnabled(false);
         jbEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbEliminarActionPerformed(evt);
@@ -220,6 +222,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
                     jtApellido.setText(alEncontrado.getApellido());
                     jDateChooser1.setDate(Date.from(alEncontrado.getFechaNacimiento().atStartOfDay(ZoneId.systemDefault()).toInstant()));   //convertir de Local Date a Date 
                     jrbEstado.setSelected(alEncontrado.isActivo());
+                    jbNuevo.setEnabled(true);
+                    jbEliminar.setEnabled(true);
                 }
             } catch (NumberFormatException nf) {
                 JOptionPane.showMessageDialog(null, "El campo 'Documento' debe contener un número entero.");
@@ -302,6 +306,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         jtDocumento.setText("");
         jDateChooser1.setDate(null);
         jrbEstado.setSelected(false);
+        jbNuevo.setEnabled(false);
+        jbEliminar.setEnabled(false);
     }
     
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed

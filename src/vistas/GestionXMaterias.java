@@ -196,16 +196,17 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
 
     private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
         try {
-
-            MateriaData md= new MateriaData();
-            Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-            System.out.println(m);
-            jtfCodigo.setText(String.valueOf(m.getIdMateria()));
-            jtfNombre.setText(m.getNombre());
-            jtfAnio.setText(String.valueOf(m.getAnio()));
-            jrbEstado.setSelected(true);
-            jbEliminar.setEnabled(true);
-            jtfCodigo.setEditable(false);
+            MateriaData md = new MateriaData();
+            Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+            if (m != null) {
+                jtfCodigo.setText(String.valueOf(m.getIdMateria()));
+                jtfNombre.setText(m.getNombre());
+                jtfAnio.setText(String.valueOf(m.getAnio()));
+                jrbEstado.setSelected(true);
+                jbEliminar.setEnabled(true);
+                jtfCodigo.setEditable(false);
+                jbNuevo.setEnabled(true);
+            }
 
         } catch (NumberFormatException nf) {
                JOptionPane.showMessageDialog(null, "El código ingresado debe ser un número");
@@ -217,19 +218,20 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jrbEstadoActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
-        // TODO add your handling code here:
+        limpiarFormulario();
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
        
-       MateriaData md= new MateriaData();
-       Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
-       md.eliminarMateria(m.getIdMateria());
+        MateriaData md= new MateriaData();
+        Materia m=  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
+        md.eliminarMateria(m.getIdMateria());
         jtfCodigo.setText("");
         jtfNombre.setText("");
         jtfAnio.setText("");
         jrbEstado.setSelected(false);
         jtfCodigo.setEditable(true);
+        limpiarFormulario();
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
@@ -254,10 +256,7 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
                  }
         try {
             if(!jtfCodigo.getText().isEmpty()){
-                
-
                 if (!repetida) {
-
                     Materia m =  md.buscarMateria(Integer.parseInt(jtfCodigo.getText()));
                     m.setNombre(jtfNombre.getText());
                     m.setAnio(Integer.parseInt(jtfAnio.getText()));
@@ -271,24 +270,27 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
                 }
 
             } else{
-                  // guardar materia... Quemadisima!! seguir mañana
+                if (!repetida) {
+                    Materia m = new Materia();
+                    m.setNombre(nombre);
+                    m.setAnio(Integer.parseInt(jtfAnio.getText()));
+                    m.setActivo(jrbEstado.isSelected());
+                    md.guardarMateria(m);
+                }
 
-                 if (!repetida) {
-                     Materia m = new Materia();
-                     m.setNombre(nombre);
-                     m.setAnio(Integer.parseInt(jtfAnio.getText()));
-                     m.setActivo(jrbEstado.isSelected());
-                     md.guardarMateria(m);
-                 }
-
-          }
-    } catch (NumberFormatException nf) {
-               JOptionPane.showMessageDialog(null, "El año ingresado debe ser un número");
-    }
-   
-      
+            }
+        } catch (NumberFormatException nf) {
+                   JOptionPane.showMessageDialog(null, "El año ingresado debe ser un número");
+        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
+    private void limpiarFormulario() {
+        jtfCodigo.setText("");
+        jtfNombre.setText("");
+        jtfAnio.setText("");
+        jbNuevo.setEnabled(false);
+        jbEliminar.setEnabled(false);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

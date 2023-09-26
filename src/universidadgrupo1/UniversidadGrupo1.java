@@ -174,8 +174,6 @@ public class UniversidadGrupo1 {
         
         System.out.println("Materias agregadas con éxito");
         
-        
-        
         Inscripcion ins1 = new Inscripcion(10, messi, ef2);
         Inscripcion ins2 = new Inscripcion(10, messi, mat1);
         Inscripcion ins3 = new Inscripcion(10, sanM, mat2);
@@ -227,7 +225,7 @@ public class UniversidadGrupo1 {
         
         System.out.println("Inscripciones agregadas con éxito");
         
-        System.out.println("Dase de datos cargada con éxito");
+        System.out.println("Base de datos cargada con éxito");
         
     }
     

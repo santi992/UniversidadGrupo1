@@ -296,24 +296,15 @@ public class ManejoInscripciones extends javax.swing.JInternalFrame {
             
             
             List <Materia>  listMat =inscripcion.obtenerMateriasCursadas(alumnoDatos.getIdAlumno());
-            for (Materia mat : listMat) {       
-                System.out.println(mat);
-            
-   
+            for (Materia mat : listMat) {     
                 modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio()});    
             }
- 
-            
-        
         } else if (jrMateriaN.isSelected() == true && jrMateria.isSelected() == false) { //materias no inscriptas
             jbAnular.setEnabled(false);
             jbInscripcion.setEnabled(true);
            
             List <Materia>  listMatNoI =inscripcion.obtenerMateriasNoCursadas(alumnoDatos.getIdAlumno());
-            for (Materia mat : listMatNoI) {       
-                System.out.println(mat);
-            
-   
+            for (Materia mat : listMatNoI) {  
                 modelo.addRow(new Object[]{mat.getIdMateria(),mat.getNombre(),mat.getAnio()});    
                 
             }
