@@ -9,6 +9,7 @@ import accesoADatos.InscripcionData;
 import entidades.Alumno;
 import entidades.Inscripcion;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -224,21 +225,25 @@ private InscripcionData iData = new InscripcionData();
         int filas = modelo.getRowCount();
         Alumno alumno = (Alumno) jcbAlumno.getSelectedItem();
         List<Inscripcion> inscripciones = iData.obtenerInscripcionesPorAlumno(alumno.getIdAlumno());
-        double nota;
+        int nota = 0;
         for (int i = 0; i < filas; i++) {
-            
-            int idMateria =(int) this.modelo.getValueAt(i, 0);
-            
+
+            int idMateria = (int) this.modelo.getValueAt(i, 0);
+
             try {
-                nota = (double)this.modelo.getValueAt(i, 2) ;
+                nota = (int) this.modelo.getValueAt(i, 2);
+
             } catch (java.lang.ClassCastException ce) {
-                nota = Double.parseDouble((String)this.modelo.getValueAt(i, 2)) ;
+                try {
+                    nota = Integer.parseInt((String) this.modelo.getValueAt(i, 2));
+                    if (nota != inscripciones.get(i).getNota()) {
+                        iData.actualizarNota(alumno.getIdAlumno(), idMateria, nota);
+                    }
+                } catch (NumberFormatException nf) {
+                    JOptionPane.showMessageDialog(null, "La nota debe ser un número");
+                }
             }
-            
-            if(nota != inscripciones.get(i).getNota()){
-                iData.actualizarNota(alumno.getIdAlumno(), idMateria, nota);
-            }
-            
+
         }
     }
 }
