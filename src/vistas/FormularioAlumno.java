@@ -263,37 +263,34 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
             al.setNombre(jtNombre.getText());
             al.setFechaNacimiento(jDateChooser1.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             al.setActivo(jrbEstado.isSelected());
-       
-        
-            try {
-                
-        al2 = alu.buscarAlumnoPorDniGuardar(Integer.parseInt(jtDocumento.getText())); // busca en la base de dato un doc igual al escrito en la venta
-        if (al.getDni() == al2.getDni() ) {                           //se comparan para ver si hay alguien con el mismo dni true = se modifica o vuelve a activar al alumno
-            int respuesta = JOptionPane.showConfirmDialog(null, "Se ha encontrado un alumno con DNI "+jtDocumento.getText()+" en la base de datos.\n¿Desea reemplazar los datos existentes del alumno por los ingresados?"
-                    , "confirmacion", JOptionPane.YES_NO_OPTION);
 
-            if (respuesta == JOptionPane.YES_OPTION) {
-                al.setIdAlumno(al2.getIdAlumno());
-                alu.modificarAlumno(al);
-            } else {
-                respuesta = JOptionPane.showConfirmDialog(null, "¿Desea mantener al alumno activo?", "confirmacion", JOptionPane.YES_NO_OPTION);
-                if (respuesta == JOptionPane.YES_OPTION) {
-                    al2.setActivo(true);
-                } else {
-                    al2.setActivo(false);
+            try {
+
+                al2 = alu.buscarAlumnoPorDniGuardar(Integer.parseInt(jtDocumento.getText())); // busca en la base de dato un doc igual al escrito en la venta
+                if (al.getDni() == al2.getDni()) {                           //se comparan para ver si hay alguien con el mismo dni true = se modifica o vuelve a activar al alumno
+                    int respuesta = JOptionPane.showConfirmDialog(null, "Se ha encontrado un alumno con DNI " + jtDocumento.getText() + " en la base de datos.\n¿Desea reemplazar los datos existentes del alumno por los ingresados?",
+                             "confirmacion", JOptionPane.YES_NO_OPTION);
+
+                    if (respuesta == JOptionPane.YES_OPTION) {
+                        al.setIdAlumno(al2.getIdAlumno());
+                        alu.modificarAlumno(al);
+                    } else {
+                        respuesta = JOptionPane.showConfirmDialog(null, "¿Desea mantener al alumno activo?", "confirmacion", JOptionPane.YES_NO_OPTION);
+                        if (respuesta == JOptionPane.YES_OPTION) {
+                            al2.setActivo(true);
+                        } else {
+                            al2.setActivo(false);
+                        }
+                        alu.modificarEstado(al2);
+
+                    }
+
+                    limpiarFormulario();
                 }
-                alu.modificarEstado(al2);
-            
-            }
-            
-            limpiarFormulario();
-        }
             } catch (NullPointerException ex) {
-                 alu.guardarAlumno(al);  
+                alu.guardarAlumno(al);
             }
-        
-        
-  
+
         } catch (NullPointerException ex) {
             JOptionPane.showMessageDialog(null, "Campos en blanco o alumno nuevo ");
         }
