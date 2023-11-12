@@ -286,9 +286,10 @@ public class GestionXMaterias extends javax.swing.JInternalFrame {
             }
 
         } catch (NumberFormatException nf) {
-            JOptionPane.showMessageDialog(null, "El año ingresado debe ser un número");
+            JOptionPane.showMessageDialog(null, "El año y código ingresados deben ser un número");
         }
     }
+    
     private void limpiarFormulario() {
         jtfCodigo.setText("");
         jtfNombre.setText("");

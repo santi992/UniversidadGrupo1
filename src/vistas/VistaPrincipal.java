@@ -151,6 +151,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jAdmin.setText("Administracion");
 
         jMInscripciones.setText("Manejo de Inscripciones");
+        jMInscripciones.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMInscripcionesMouseClicked(evt);
+            }
+        });
         jMInscripciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMInscripcionesActionPerformed(evt);
@@ -260,6 +265,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jSalirMouseClicked
+
+    private void jMInscripcionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMInscripcionesMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMInscripcionesMouseClicked
 
                                          
 
